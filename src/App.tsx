@@ -13,6 +13,10 @@ import ModeratorSessions from "./pages/moderator/ModeratorSessions";
 import CreateSession from "./pages/moderator/CreateSession";
 import SessionRoom from "./pages/moderator/SessionRoom";
 import ManageParticipants from "./pages/moderator/ManageParticipants";
+import ParticipantSessions from "./pages/participant/ParticipantSessions";
+import ParticipantSessionRoom from "./pages/participant/SessionRoom";
+import SessionFeedback from "./pages/participant/SessionFeedback";
+import Practice from "./pages/participant/Practice";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +39,12 @@ const App = () => (
             <Route path="/moderator/sessions/create" element={<CreateSession />} />
             <Route path="/moderator/sessions/:sessionId/room" element={<SessionRoom />} />
             <Route path="/moderator/participants" element={<ManageParticipants />} />
+            
+            {/* Participant Routes */}
+            <Route path="/participant/sessions" element={<ParticipantSessions />} />
+            <Route path="/participant/sessions/:sessionId/room" element={<ParticipantSessionRoom />} />
+            <Route path="/participant/sessions/:sessionId/feedback" element={<SessionFeedback />} />
+            <Route path="/participant/practice" element={<Practice />} />
             
             {/* 404 Route */}
             <Route path="*" element={<NotFound />} />
