@@ -1,7 +1,7 @@
-
 import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { useToast } from '@/hooks/use-toast';
 import MainLayout from '@/components/layout/MainLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -18,7 +18,6 @@ import {
   Tooltip as RechartsTooltip,
 } from 'recharts';
 
-// Mock feedback history data
 const mockFeedbackData = {
   sessionId: '3',
   sessionTitle: 'Leadership Skills Assessment',
@@ -111,8 +110,7 @@ const FeedbackHistory = () => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
   const [feedbackData, setFeedbackData] = useState(mockFeedbackData);
-  
-  // In a real app, this would fetch feedback data from an API
+  const { toast } = useToast();
   
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = { 
@@ -162,9 +160,11 @@ const FeedbackHistory = () => {
   ];
   
   const exportFeedback = () => {
-    // In a real app, this would generate and download a PDF or CSV file
     console.log('Exporting feedback');
-    toast.success('Feedback exported successfully');
+    toast({
+      title: "Success",
+      description: "Feedback exported successfully",
+    });
   };
   
   if (!currentUser || currentUser.role !== 'evaluator') {
