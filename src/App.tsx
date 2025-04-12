@@ -17,6 +17,10 @@ import ParticipantSessions from "./pages/participant/ParticipantSessions";
 import ParticipantSessionRoom from "./pages/participant/SessionRoom";
 import SessionFeedback from "./pages/participant/SessionFeedback";
 import Practice from "./pages/participant/Practice";
+import EvaluatorSessions from "./pages/evaluator/EvaluatorSessions";
+import EvaluationRoom from "./pages/evaluator/EvaluationRoom";
+import FeedbackHistory from "./pages/evaluator/FeedbackHistory";
+import EvaluationForm from "./pages/evaluator/EvaluationForm";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +49,12 @@ const App = () => (
             <Route path="/participant/sessions/:sessionId/room" element={<ParticipantSessionRoom />} />
             <Route path="/participant/sessions/:sessionId/feedback" element={<SessionFeedback />} />
             <Route path="/participant/practice" element={<Practice />} />
+            
+            {/* Evaluator Routes */}
+            <Route path="/evaluator/sessions" element={<EvaluatorSessions />} />
+            <Route path="/evaluator/sessions/:sessionId/room" element={<EvaluationRoom />} />
+            <Route path="/evaluator/sessions/:sessionId/feedback-history" element={<FeedbackHistory />} />
+            <Route path="/evaluator/sessions/:sessionId/evaluate/:participantId" element={<EvaluationForm />} />
             
             {/* 404 Route */}
             <Route path="*" element={<NotFound />} />
