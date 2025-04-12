@@ -1,13 +1,12 @@
-
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import MainLayout from '@/components/layout/MainLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { BarChart, Calendar, Users, MessageSquare, Activity, Clock, Award } from 'lucide-react';
+import { BarChart as BarChartIcon, Calendar, Users, MessageSquare, Activity, Clock, Award } from 'lucide-react';
 import { 
-  BarChart as RechartsBarChart, 
+  BarChart, 
   Bar, 
   XAxis, 
   YAxis, 
@@ -18,7 +17,6 @@ import {
   Line
 } from 'recharts';
 
-// Mock data for charts
 const performanceData = [
   { name: 'Jan', communication: 65, confidence: 55, reasoning: 70, engagement: 60 },
   { name: 'Feb', communication: 68, confidence: 59, reasoning: 72, engagement: 63 },
@@ -37,7 +35,6 @@ const sessionCountData = [
   { name: 'Jun', count: 6 },
 ];
 
-// Mock session data
 const upcomingSessions = [
   {
     id: '1',
@@ -65,7 +62,6 @@ const upcomingSessions = [
   }
 ];
 
-// Mock feedback data
 const recentFeedback = [
   {
     id: '1',
@@ -105,7 +101,6 @@ const Dashboard = () => {
     else setGreeting('Good evening');
   }, []);
 
-  // Calculate performance averages for overview cards
   const getPerformanceAverages = () => {
     const lastMonthData = performanceData[performanceData.length - 1];
     return {
@@ -118,7 +113,6 @@ const Dashboard = () => {
 
   const performanceAverages = getPerformanceAverages();
 
-  // Format date for display
   const formatDate = (dateString: string) => {
     const options: Intl.DateTimeFormatOptions = { 
       weekday: 'short', 
@@ -133,7 +127,6 @@ const Dashboard = () => {
   return (
     <MainLayout>
       <div className="space-y-6">
-        {/* Welcome Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div>
             <h1 className="text-2xl font-bold tracking-tight">
@@ -172,7 +165,6 @@ const Dashboard = () => {
           )}
         </div>
 
-        {/* Stats Overview */}
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -232,7 +224,6 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        {/* Charts */}
         <div className="grid gap-4 md:grid-cols-2">
           <Card className="col-span-1">
             <CardHeader>
@@ -319,7 +310,6 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        {/* Upcoming Sessions and Recent Feedback */}
         <div className="grid gap-4 md:grid-cols-2">
           <Card className="col-span-1">
             <CardHeader>
