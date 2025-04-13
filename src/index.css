@@ -123,12 +123,12 @@
   
   /* Glass effect for containers */
   .glass-container {
-    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-md rounded-xl;
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-md rounded-xl transition-all duration-300 hover:shadow-xl;
   }
 
   /* Gradient card effect */
   .gradient-card {
-    @apply bg-gradient-to-b from-white to-gray-50 shadow-md rounded-xl border border-gray-100;
+    @apply bg-gradient-to-b from-white to-gray-50 shadow-md rounded-xl border border-gray-100 transition-all duration-300 hover:shadow-elevation;
   }
   
   /* Section container */
@@ -138,11 +138,11 @@
   
   /* New beautiful components */
   .card-glass {
-    @apply backdrop-blur-lg bg-white/20 border border-white/30 shadow-lg rounded-xl transition-all duration-300 hover:shadow-xl;
+    @apply backdrop-blur-lg bg-white/20 border border-white/30 shadow-lg rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
   }
   
   .card-colorful {
-    @apply bg-gradient-to-br from-speakspace-primary/10 via-white to-speakspace-evaluator/10 shadow-md rounded-xl border border-white/50 transition-all duration-300 hover:shadow-glow;
+    @apply bg-gradient-to-br from-speakspace-primary/10 via-white to-speakspace-evaluator/10 shadow-md rounded-xl border border-white/50 transition-all duration-300 hover:shadow-glow hover:-translate-y-1;
   }
   
   .text-gradient {
@@ -150,11 +150,24 @@
   }
   
   .btn-glass {
-    @apply bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm rounded-lg px-4 py-2 transition-all hover:bg-white/30 hover:shadow-md;
+    @apply bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm rounded-lg px-4 py-2 transition-all hover:bg-white/30 hover:shadow-md hover:scale-105;
   }
   
   .input-animated {
     @apply border-b-2 border-gray-200 focus:border-speakspace-primary transition-all duration-300 outline-none py-2 px-3 bg-transparent;
+  }
+  
+  /* Role-specific cards */
+  .moderator-card {
+    @apply bg-gradient-to-br from-white via-white to-speakspace-moderator/10 border border-speakspace-moderator/20 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .participant-card {
+    @apply bg-gradient-to-br from-white via-white to-speakspace-participant/10 border border-speakspace-participant/20 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .evaluator-card {
+    @apply bg-gradient-to-br from-white via-white to-speakspace-evaluator/10 border border-speakspace-evaluator/20 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
 }
 
@@ -204,6 +217,30 @@
   
   .animate-pulse-light {
     animation: pulseLight 2s infinite;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.5s ease-out forwards;
+  }
+  
+  .animate-fade-in-scale {
+    animation: fadeInScale 0.5s ease-out forwards;
+  }
+  
+  .animate-swing {
+    animation: swing 2s ease-in-out infinite;
+  }
+  
+  .animate-ping-slow {
+    animation: pingSlow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  
+  .animate-breathe {
+    animation: breathe 4s ease-in-out infinite;
   }
   
   /* Animation keyframes */
@@ -320,6 +357,68 @@
     }
     50% {
       opacity: 0.85;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes swing {
+    0%, 100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+  
+  @keyframes pingSlow {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    75%, 100% {
+      transform: scale(1.1);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes breathe {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03);
     }
   }
 }

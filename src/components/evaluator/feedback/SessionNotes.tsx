@@ -9,16 +9,16 @@ interface SessionNotesProps {
 
 export const SessionNotes = ({ notes }: SessionNotesProps) => {
   return (
-    <Card className="overflow-hidden border-none shadow-lg transition-all duration-300 hover:shadow-elevation animate-fade-in">
-      <CardHeader className="bg-gradient-to-r from-speakspace-evaluator/20 via-speakspace-evaluator/15 to-speakspace-evaluator/5 pb-4">
-        <div className="flex items-center gap-3">
+    <Card className="overflow-hidden border-none shadow-elevation transition-all duration-500 hover:shadow-colored-hover animate-float">
+      <CardHeader className="bg-gradient-to-r from-speakspace-evaluator/30 via-speakspace-evaluator/20 to-speakspace-evaluator/10 pb-4">
+        <div className="flex items-center gap-3 animate-fade-in">
           <HoverCard>
             <HoverCardTrigger asChild>
-              <div className="rounded-full bg-speakspace-evaluator/30 p-3 shadow-md transition-all duration-300 hover:bg-speakspace-evaluator/40 hover:shadow-lg animate-pulse-light cursor-pointer">
+              <div className="rounded-full bg-speakspace-evaluator/40 p-3 shadow-md transition-all duration-300 hover:bg-speakspace-evaluator/60 hover:shadow-glow animate-pulse-soft cursor-pointer">
                 <MessageSquare className="h-5 w-5 text-speakspace-evaluator" />
               </div>
             </HoverCardTrigger>
-            <HoverCardContent className="w-80">
+            <HoverCardContent className="w-80 animate-fade-in">
               <div className="space-y-2">
                 <h4 className="text-sm font-semibold">Session Notes</h4>
                 <p className="text-xs text-muted-foreground">
@@ -27,7 +27,7 @@ export const SessionNotes = ({ notes }: SessionNotesProps) => {
               </div>
             </HoverCardContent>
           </HoverCard>
-          <div>
+          <div className="animate-slide-in" style={{ animationDelay: '100ms' }}>
             <CardTitle className="text-lg font-medium">Session Notes</CardTitle>
             <CardDescription className="text-sm">
               General notes about the overall session
@@ -41,8 +41,11 @@ export const SessionNotes = ({ notes }: SessionNotesProps) => {
             {notes.split('\n').map((paragraph, index) => (
               <p 
                 key={index} 
-                className={`transition-all duration-300 animate-slide-in ${index > 0 ? 'mt-4' : ''}`}
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="transition-all duration-500 animate-slide-in opacity-0"
+                style={{ 
+                  animationDelay: `${index * 150}ms`,
+                  animationFillMode: 'forwards'
+                }}
               >
                 {paragraph}
               </p>
