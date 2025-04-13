@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 import ModeratorSessions from "./pages/moderator/ModeratorSessions";
 import CreateSession from "./pages/moderator/CreateSession";
 import SessionRoom from "./pages/moderator/SessionRoom";
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/profile" element={<Profile />} />
               
               {/* Moderator Routes */}
               <Route path="/moderator/sessions" element={<ModeratorSessions />} />
