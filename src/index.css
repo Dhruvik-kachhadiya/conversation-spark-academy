@@ -84,31 +84,31 @@
 
 @layer components {
   .role-badge-moderator {
-    @apply bg-speakspace-moderator text-white text-xs px-2 py-0.5 rounded-full;
+    @apply bg-speakspace-moderator text-white text-xs px-2 py-0.5 rounded-full shadow-sm;
   }
   
   .role-badge-participant {
-    @apply bg-speakspace-participant text-white text-xs px-2 py-0.5 rounded-full;
+    @apply bg-speakspace-participant text-white text-xs px-2 py-0.5 rounded-full shadow-sm;
   }
   
   .role-badge-evaluator {
-    @apply bg-speakspace-evaluator text-white text-xs px-2 py-0.5 rounded-full;
+    @apply bg-speakspace-evaluator text-white text-xs px-2 py-0.5 rounded-full shadow-sm;
   }
 
   .btn-primary {
-    @apply bg-speakspace-primary hover:bg-opacity-90 text-white;
+    @apply bg-speakspace-primary hover:bg-opacity-90 text-white shadow-sm transition-all;
   }
 
   .btn-moderator {
-    @apply bg-speakspace-moderator hover:bg-opacity-90 text-white;
+    @apply bg-speakspace-moderator hover:bg-opacity-90 text-white shadow-sm transition-all;
   }
 
   .btn-participant {
-    @apply bg-speakspace-participant hover:bg-opacity-90 text-white;
+    @apply bg-speakspace-participant hover:bg-opacity-90 text-white shadow-sm transition-all;
   }
 
   .btn-evaluator {
-    @apply bg-speakspace-evaluator hover:bg-opacity-90 text-white;
+    @apply bg-speakspace-evaluator hover:bg-opacity-90 text-white shadow-sm transition-all;
   }
   
   /* Card styles with hover effects */
@@ -123,7 +123,17 @@
   
   /* Glass effect for containers */
   .glass-container {
-    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-md;
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-md rounded-xl;
+  }
+
+  /* Gradient card effect */
+  .gradient-card {
+    @apply bg-gradient-to-b from-white to-gray-50 shadow-md rounded-xl border border-gray-100;
+  }
+  
+  /* Section container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
   }
 }
 
@@ -139,6 +149,18 @@
   
   .animate-bounce-in {
     animation: bounceIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-soft {
+    animation: pulseSoft 2s infinite;
+  }
+
+  .animate-appear {
+    animation: appear 0.5s ease-out forwards;
   }
   
   /* Animation keyframes */
@@ -173,6 +195,35 @@
     }
     100% {
       transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes appear {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 }

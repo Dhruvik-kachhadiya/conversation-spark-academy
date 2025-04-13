@@ -8,10 +8,10 @@ interface SessionNotesProps {
 
 export const SessionNotes = ({ notes }: SessionNotesProps) => {
   return (
-    <Card className="overflow-hidden border-none shadow-md transition-all hover:shadow-lg animate-fade-in">
-      <CardHeader className="bg-gradient-to-r from-speakspace-evaluator/10 to-speakspace-evaluator/5 pb-4">
+    <Card className="overflow-hidden border-none shadow-lg transition-all hover:shadow-xl animate-fade-in">
+      <CardHeader className="bg-gradient-to-r from-speakspace-evaluator/20 to-speakspace-evaluator/5 pb-4">
         <div className="flex items-center gap-2">
-          <div className="rounded-full bg-speakspace-evaluator/20 p-2">
+          <div className="rounded-full bg-speakspace-evaluator/30 p-2.5 shadow-sm">
             <MessageSquare className="h-5 w-5 text-speakspace-evaluator" />
           </div>
           <div>
@@ -22,11 +22,11 @@ export const SessionNotes = ({ notes }: SessionNotesProps) => {
           </div>
         </div>
       </CardHeader>
-      <CardContent className="p-5">
+      <CardContent className="p-6 bg-gradient-to-b from-white to-gray-50">
         {notes ? (
           <div className="text-sm leading-relaxed">
             {notes.split('\n').map((paragraph, index) => (
-              <p key={index} className={index > 0 ? 'mt-3' : ''}>
+              <p key={index} className={index > 0 ? 'mt-4' : ''}>
                 {paragraph}
               </p>
             ))}
