@@ -11,10 +11,13 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 import ModeratorSessions from "./pages/moderator/ModeratorSessions";
 import CreateSession from "./pages/moderator/CreateSession";
 import SessionRoom from "./pages/moderator/SessionRoom";
 import ManageParticipants from "./pages/moderator/ManageParticipants";
+import EditParticipant from "./pages/moderator/EditParticipant";
+import SessionSummary from "./pages/moderator/SessionSummary";
 import ParticipantSessions from "./pages/participant/ParticipantSessions";
 import ParticipantSessionRoom from "./pages/participant/SessionRoom";
 import SessionFeedback from "./pages/participant/SessionFeedback";
@@ -41,12 +44,15 @@ const App = () => (
               <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/settings" element={<Settings />} />
               
               {/* Moderator Routes */}
               <Route path="/moderator/sessions" element={<ModeratorSessions />} />
               <Route path="/moderator/sessions/create" element={<CreateSession />} />
               <Route path="/moderator/sessions/:sessionId/room" element={<SessionRoom />} />
+              <Route path="/moderator/sessions/:sessionId/summary" element={<SessionSummary />} />
               <Route path="/moderator/participants" element={<ManageParticipants />} />
+              <Route path="/moderator/participants/:participantId/edit" element={<EditParticipant />} />
               
               {/* Participant Routes */}
               <Route path="/participant/sessions" element={<ParticipantSessions />} />
